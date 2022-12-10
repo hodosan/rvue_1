@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :occupations
   #devise_for :admins
   devise_for :admins, controllers: {
     registrations: 'admins/registrations',

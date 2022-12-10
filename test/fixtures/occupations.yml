@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  day: 2022-12-10
+  time_s: 2022-12-10 11:50:14
+  time_e: 2022-12-10 11:50:14
+  reservation: false
+  confirmed: false
+
+two:
+  user: two
+  day: 2022-12-10
+  time_s: 2022-12-10 11:50:14
+  time_e: 2022-12-10 11:50:14
+  reservation: false
+  confirmed: false
