@@ -17,6 +17,7 @@ class OccupationsTest < ApplicationSystemTestCase
     check "Confirmed" if @occupation.confirmed
     fill_in "Day", with: @occupation.day
     check "Reservation" if @occupation.reservation
+    fill_in "Room", with: @occupation.room_id
     fill_in "Time e", with: @occupation.time_e
     fill_in "Time s", with: @occupation.time_s
     fill_in "User", with: @occupation.user_id
@@ -33,6 +34,7 @@ class OccupationsTest < ApplicationSystemTestCase
     check "Confirmed" if @occupation.confirmed
     fill_in "Day", with: @occupation.day
     check "Reservation" if @occupation.reservation
+    fill_in "Room", with: @occupation.room_id
     fill_in "Time e", with: @occupation.time_e
     fill_in "Time s", with: @occupation.time_s
     fill_in "User", with: @occupation.user_id

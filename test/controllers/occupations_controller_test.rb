@@ -17,7 +17,7 @@ class OccupationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create occupation" do
     assert_difference("Occupation.count") do
-      post occupations_url, params: { occupation: { confirmed: @occupation.confirmed, day: @occupation.day, reservation: @occupation.reservation, time_e: @occupation.time_e, time_s: @occupation.time_s, user_id: @occupation.user_id } }
+      post occupations_url, params: { occupation: { confirmed: @occupation.confirmed, day: @occupation.day, reservation: @occupation.reservation, room_id: @occupation.room_id, time_e: @occupation.time_e, time_s: @occupation.time_s, user_id: @occupation.user_id } }
     end
 
     assert_redirected_to occupation_url(Occupation.last)
@@ -34,7 +34,7 @@ class OccupationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update occupation" do
-    patch occupation_url(@occupation), params: { occupation: { confirmed: @occupation.confirmed, day: @occupation.day, reservation: @occupation.reservation, time_e: @occupation.time_e, time_s: @occupation.time_s, user_id: @occupation.user_id } }
+    patch occupation_url(@occupation), params: { occupation: { confirmed: @occupation.confirmed, day: @occupation.day, reservation: @occupation.reservation, room_id: @occupation.room_id, time_e: @occupation.time_e, time_s: @occupation.time_s, user_id: @occupation.user_id } }
     assert_redirected_to occupation_url(@occupation)
   end
 
