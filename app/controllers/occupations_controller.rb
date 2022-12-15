@@ -26,6 +26,14 @@ class OccupationsController < ApplicationController
     # 予約可否ハッシュ作成（helper method : make_array_enable_days）使用
     @day_enable = make_array_enable_days(@today, @weeks, @enable_days)
   end
+     
+  def of_tday
+    tday = params[:day]
+p tday    
+    #@tday_occupations = Occupation.of_tday(tday, current_user.id)
+    @tday_occupations = Occupation.of_tday(tday)
+#p @tday_occupations    
+  end
 
   # GET /occupations/1 or /occupations/1.json
   def show
@@ -33,7 +41,19 @@ class OccupationsController < ApplicationController
 
   # GET /occupations/new
   def new
+    #p params[:day]
+    selected_day = params[:day]
     @occupation = Occupation.new
+    @occupation.day = selected_day
+    @occupation.user_id = current_user.id
+
+    selected_day_data = Calender.where(day: selected_day)
+    #p selected_day_data[0]
+    @tday, @mns = minute_blocks(selected_day_data[0])
+    @mnlist = {} 
+    @mns.each_with_index do |mn, inx|
+      @mnlist[mn] =inx
+    end
   end
 
   # GET /occupations/1/edit
@@ -43,6 +63,7 @@ class OccupationsController < ApplicationController
   # POST /occupations or /occupations.json
   def create
     @occupation = Occupation.new(occupation_params)
+    @occupation.user_id = current_user.id
 
     respond_to do |format|
       if @occupation.save

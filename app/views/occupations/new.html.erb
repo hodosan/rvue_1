@@ -1,7 +1,23 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">New occupation</h1>
+<div class="mx-auto md:w-3/4 w-full">
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">新規予約</h1>
+    <%= link_to '予約トップへ戻る', occupations_path, 
+        class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
 
-  <%= render "form", occupation: @occupation %>
+  <div id="new-occupation" class="mt-5 mb-10">
+    <new-occupation tday="<%= @tday %>" 
+                    :mns="<%= @mns %>" 
+                    :mnlist="<%= @mnlist.to_json %>" 
+                    :current="<%= current_user.id %>">
+    </new-occupation>
+  </div>
 
-  <%= link_to 'Back to occupations', occupations_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
 </div>
+
+
+
+
+<% content_for :meta_t do %>
+<meta name="turbo-visit-control" content="reload">
+<% end %>

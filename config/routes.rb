@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :occupations
 
   devise_for :admins, controllers: {
     registrations: 'admins/registrations',
@@ -10,6 +9,15 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
+  
+  resources :occupations   do
+    collection do
+      get :of_tday
+    end
+    collection do
+      get :admin
+    end
+  end
 
   resources :calenders
   resources :rooms
