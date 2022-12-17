@@ -4,7 +4,7 @@ class OccupationsController < ApplicationController
 
   # GET /occupations or /occupations.json
   def index
-    #@occupations = Occupation.enable
+    @occupations = Occupation.owned_by_user(current_user.id)
     #p @occupations
     @enable_days = Calender.enable
     p @enable_days
