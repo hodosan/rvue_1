@@ -36,6 +36,21 @@ class CalendersController < ApplicationController
   # GET /calenders/1/edit
   def edit
   end
+  
+  # PATCH/PUT /rooms/1 or /rooms/1/select.json
+  def select
+    selected_room = Room.find(params[:id])
+    t = Time.new
+    date   = t.strftime("%Y-%m-%d")
+    #tdate = t.strftime("%Y-%m-%dT%H:%M:%S")
+    bTime  = date + "T09:00"
+    cTime  = date + "T17:00"
+    isTime = date + "T12:00"
+    ieTime = date + "T13:00"
+    wday   = t.wday
+    @state_data = [selected_room, date, bTime, cTime, isTime, ieTime, wday]
+    return @state_data
+  end
 
   # POST /calenders or /calenders.json
   def create

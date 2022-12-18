@@ -104,9 +104,14 @@
                     <%= @day_enable[day] %>
                   </span>
                 </div>
-                <%#= link_to '新規予約', new_occupation_path(day: day), 
-                    class: "rounded-lg py-3 px-5 bg-yellow-400 text-white block font-medium"  \
-                    if !is_close %>
+
+                <div>
+                  <input type="checkbox" 
+                        id="day<%= day.strftime("%-d") %>"
+                        data-action="item#upvote"
+                        data-item-id-param="day<%= day.strftime("%-d") %>" 
+                        checked>
+                </div>
               </div>
             </div>
           </td>
