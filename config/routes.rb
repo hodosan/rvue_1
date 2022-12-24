@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :regulations
 
   devise_for :admins, controllers: {
     registrations: 'admins/registrations',

@@ -5,7 +5,8 @@ class CalendersController < ApplicationController
   # GET /calenders or /calenders.json
   def index
     @calenders = Calender.all
-    @enable_days = []
+    #@enable_days = []
+    @enable_days = Calender.enable
     @today       = Date.today
     @this_month  = @today.strftime("%m")
     month_1st    = @today.beginning_of_month
@@ -22,6 +23,12 @@ class CalendersController < ApplicationController
     end
     # 予約可否ハッシュ作成（helper method : make_array_enable_days）使用
     @day_enable = make_array_enable_days(@today, @weeks, @enable_days)
+
+    @begin_time   = "09:00"
+    @close_time   = "17:00"
+    @interval_s   = "12:00"
+    @interval_e   = "13:00"
+    @unit_minute  = "15"
  end
 
   # GET /calenders/1 or /calenders/1.json
@@ -31,6 +38,13 @@ class CalendersController < ApplicationController
   # GET /calenders/new
   def new
     @calender = Calender.new
+    @calender.day         = params[:day] 
+    @calender.begin_time  = params[:day] + 'T' + params[:begin_time]
+    @calender.close_time  = params[:day] + 'T' + params[:close_time]
+    @calender.interval_s  = params[:day] + 'T' + params[:interval_s]
+    @calender.interval_e  = params[:day] + 'T' + params[:interval_e]
+    @calender.unit_minute = params[:unit_minute]
+    #binding.b
   end
 
   # GET /calenders/1/edit
@@ -54,11 +68,14 @@ class CalendersController < ApplicationController
 
   # POST /calenders or /calenders.json
   def create
+    #p calender_params
+    #binding.b
     @calender = Calender.new(calender_params)
 
     respond_to do |format|
       if @calender.save
-        format.html { redirect_to calender_url(@calender), notice: "Calender was successfully created." }
+        #format.html { redirect_to calender_url(@calender), notice: "Calender was successfully created." }
+        format.html { redirect_to calenders_url, notice: "Calender was successfully created." }
         format.json { render :show, status: :created, location: @calender }
       else
         format.html { render :new, status: :unprocessable_entity }
