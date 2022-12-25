@@ -13,28 +13,32 @@
 
   <div class="my-5">
     <%= form.label :begin_time %>
-    <%= form.select :begin_time, ["08:00", "08:30", "09:00", "09:30", "10:00" ],
+    <%= form.select :begin_time, ["08:00", "08:30", "09:00", "09:30", "10:00" ], {},
         class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
     <%= form.label :close_time %>
-    <%= form.text_field :close_time, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select :close_time, ["16:00", "16:30", "17:00", "17:30", "18:00" ], {},
+        class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
     <%= form.label :interval_s %>
-    <%= form.text_field :interval_s, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select :interval_s, ["11:00", "11:30", "12:00", "12:30", "13:00" ], {},
+        class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
     <%= form.label :interval_e %>
-    <%= form.text_field :interval_e, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select :interval_e, ["12:00", "12:30", "13:00", "13:30", "14:00" ], {},
+        class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
     <%= form.label :unit_minute %>
-    <%= form.number_field :unit_minute, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select :unit_minute, [15, 30, 60], {},
+        class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">

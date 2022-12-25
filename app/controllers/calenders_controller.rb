@@ -24,11 +24,12 @@ class CalendersController < ApplicationController
     # 予約可否ハッシュ作成（helper method : make_array_enable_days）使用
     @day_enable = make_array_enable_days(@today, @weeks, @enable_days)
 
-    @begin_time   = "09:00"
-    @close_time   = "17:00"
-    @interval_s   = "12:00"
-    @interval_e   = "13:00"
-    @unit_minute  = "15"
+    regulation    = Regulation.last
+    @begin_time   = regulation.begin_time
+    @close_time   = regulation.close_time
+    @interval_s   = regulation.interval_s
+    @interval_e   = regulation.interval_e
+    @unit_minute  = regulation.unit_minute
  end
 
   # GET /calenders/1 or /calenders/1.json

@@ -35,6 +35,11 @@ p tday
 #p @tday_occupations    
   end
 
+  def admin
+    p @occupations = Occupation.all
+    @today       = Date.today
+  end
+
   # GET /occupations/1 or /occupations/1.json
   def show
   end
