@@ -1,28 +1,13 @@
 class CalendersController < ApplicationController
   before_action :set_calender, only: %i[ show edit update destroy ]
-  include OccupationsHelper
-
+  
+  include CalenderData
+  
   # GET /calenders or /calenders.json
   def index
     @calenders = Calender.all
-    #@enable_days = []
-    @enable_days = Calender.enable
-    @today       = Date.today
-    @this_month  = @today.strftime("%m")
-    month_1st    = @today.beginning_of_month
-    month_last   = @today.end_of_month
-    month_1st_wd = @today.beginning_of_month.wday
-    cal_first    = month_1st - month_1st_wd
-    cal_end      = cal_first + 6
-    # 範囲オブジェクト@week作成
-    @weeks = []
-    6.times do |i|
-      week_range = Range.new(cal_first + 7*i, cal_end + 7*i )
-      @weeks << week_range
-      break if week_range.include?(month_last)
-    end
-    # 予約可否ハッシュ作成（helper method : make_array_enable_days）使用
-    @day_enable = make_array_enable_days(@today, @weeks, @enable_days)
+
+    calender_for_view
 
     regulation    = Regulation.last
     @begin_time   = regulation.begin_time

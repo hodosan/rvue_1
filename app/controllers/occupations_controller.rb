@@ -1,35 +1,18 @@
 class OccupationsController < ApplicationController
   before_action :set_occupation, only: %i[ show edit update destroy ]
-  include OccupationsHelper
+  
+  include CalenderData
 
   # GET /occupations or /occupations.json
   def index
     @occupations = Occupation.owned_by_user(current_user.id)
-    #p @occupations
-    @enable_days = Calender.enable
-    p @enable_days
-    # calender 表示用データ作成
-    @today       = Date.today
-    @this_month  = @today.strftime("%m")
-    month_1st    = @today.beginning_of_month
-    month_last   = @today.end_of_month
-    month_1st_wd = @today.beginning_of_month.wday
-    cal_first    = month_1st - month_1st_wd
-    cal_end      = cal_first + 6
-    # 範囲オブジェクト@week作成
-    @weeks = []
-    6.times do |i|
-      week_range = Range.new(cal_first + 7*i, cal_end + 7*i )
-      @weeks << week_range
-      break if week_range.include?(month_last)
-    end
-    # 予約可否ハッシュ作成（helper method : make_array_enable_days）使用
-    @day_enable = make_array_enable_days(@today, @weeks, @enable_days)
+
+    calender_for_view
   end
      
   def of_tday
     tday = params[:day]
-p tday    
+#p tday    
     #@tday_occupations = Occupation.of_tday(tday, current_user.id)
     @tday_occupations = Occupation.of_tday(tday)
 #p @tday_occupations    
