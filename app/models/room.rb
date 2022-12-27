@@ -1,3 +1,3 @@
 class Room < ApplicationRecord
-  has_many :occupations
+  has_many :occupations, dependent: :destroy
 end
