@@ -18,7 +18,7 @@
         <% if occupation.day >= @today %>
           <tr>
             <td class="border px-4 py-2"><%= occupation.day %></td>
-            <td class="border px-4 py-2"><%= occupation.user.email %></td>
+            <td class="border px-4 py-2"><%= occupation.user.name %><br><%= occupation.user.email %></td>
             <td class="border px-4 py-2"><%= occupation.room.name %></td>
             <td class="border px-4 py-2"><%= occupation.time_s.strftime("%R") %></td>
             <td class="border px-4 py-2"><%= occupation.time_e.strftime("%R") %></td>
