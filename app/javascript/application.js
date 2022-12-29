@@ -7,3 +7,4 @@ import "controllers"
 import "./components/new-occupation"
 import "./components/occupation"
 import "./components/select-time"
+import 'fontawesome'
