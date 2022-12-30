@@ -5,9 +5,14 @@ module CalenderData
     
   end
 
-  def calender_for_view
+  def calender_for_view(month)
     @enable_days = Calender.enable
-    @today       = Date.today
+    if month == "next"
+      @today       = Date.today.next_month
+      p @today
+    else
+      @today       = Date.today
+    end
     @this_month  = @today.strftime("%m")
     month_1st    = @today.beginning_of_month
     month_last   = @today.end_of_month

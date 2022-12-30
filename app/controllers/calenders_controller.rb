@@ -6,8 +6,8 @@ class CalendersController < ApplicationController
   # GET /calenders or /calenders.json
   def index
     @calenders = Calender.all
-
-    calender_for_view
+    month = params[:month]
+    calender_for_view(month)
 
     regulation    = Regulation.last
     @begin_time   = regulation.begin_time
