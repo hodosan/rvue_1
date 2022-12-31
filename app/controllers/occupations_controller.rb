@@ -7,7 +7,8 @@ class OccupationsController < ApplicationController
   def index
     @occupations = Occupation.owned_by_user(current_user.id)
 
-    calender_for_view
+    month = params[:month]
+    calender_for_view(month)
   end
      
   def of_tday

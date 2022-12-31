@@ -10,9 +10,9 @@
       <span class="text-lg font-bold">
         <%= @today.strftime("%Y年 %m月") %>
       </span>
-      <% stayed = (@today == Date.today) ? false : true %>
+      <% nextmonth = (@today == Date.today) ? false : true %>
       <div class="buttons">
-        <% if stayed %>
+        <% if nextmonth %>
           <%= link_to(calenders_path(month: "prev"), class: "p-1") do %>
             <i class="fa-regular fa-square-caret-left text-green-300"></i>
           <% end %>
