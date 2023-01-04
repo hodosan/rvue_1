@@ -24,7 +24,6 @@
 
   <div class="my-5">
     <%= form.label :begin_time %><br>
-    <%#= form.datetime_field :begin_time, class: "frm_ln" %>
     <%= form.datetime_select :begin_time,
         {discard_year: true, discard_month: true, discard_day: true, minute_step: calender.unit_minute},
         class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-1/6" %>
@@ -32,7 +31,6 @@
 
   <div class="my-5">
     <%= form.label :close_time %><br>
-    <%#= form.datetime_field :close_time, class: "frm_ln" %>
     <%= form.datetime_select :close_time,
         {discard_year: true, discard_month: true, discard_day: true, minute_step: calender.unit_minute},
         class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-1/6" %>
@@ -40,7 +38,6 @@
 
   <div class="my-5">
     <%= form.label :interval_s %><br>
-    <%#= form.datetime_field :interval_s, class: "frm_ln" %>
     <%= form.datetime_select :interval_s,
         {discard_year: true, discard_month: true, discard_day: true, minute_step: calender.unit_minute},
         class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-1/6" %>
@@ -48,7 +45,6 @@
 
   <div class="my-5">
     <%= form.label :interval_e %><br>
-    <%#= form.datetime_field :interval_e, class: "frm_ln" %>
     <%= form.datetime_select :interval_e,
         {discard_year: true, discard_month: true, discard_day: true, minute_step: calender.unit_minute},
         class: "shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-1/6" %>

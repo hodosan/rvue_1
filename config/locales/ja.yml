@@ -7,6 +7,26 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    attributes:
+      calender:
+        day: 日付
+        begin_time: 開始時刻
+        close_time: 終了時刻
+        interval_s: 昼休開始
+        interval_e: 昼休終了
+        unit_minute: 単位：分
+        no_use: 休み
+      regulation:
+        begin_time: 開始時刻
+        close_time: 終了時刻
+        interval_s: 昼休開始
+        interval_e: 昼休終了
+        unit_minute: 単位：分
+        version: バージョン
+      room:
+        name: ルーム名
+        number: ルーム番号
+        profile: 詳細案内
   date:
     abbr_day_names:
     - 日
