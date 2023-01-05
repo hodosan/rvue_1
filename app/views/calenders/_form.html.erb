@@ -52,7 +52,7 @@
 
   <div class="my-5">
     <%= form.label :unit_minute %>
-    <%= form.number_field :unit_minute, class: "frm_ln" %>
+    <%= form.number_field :unit_minute,step: 15, min: 15, max: 30, class: "frm_ln" %>
   </div>
 
   <div class="my-5">

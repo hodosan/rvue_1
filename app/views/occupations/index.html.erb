@@ -69,7 +69,7 @@
                     <%= @day_enable[day] %>
                   </span>
                 </div>
-                <%= link_to '新規予約', new_occupation_path(day: day), 
+                <%= link_to '予約実施', new_occupation_path(day: day), 
                     class: "rounded-lg py-3 px-5 bg-yellow-400 text-white block font-medium"  \
                     if !is_close %>
               </div>
