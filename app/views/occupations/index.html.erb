@@ -63,7 +63,7 @@
               <div class="top h-5 w-full">
                 <span class="text-gray-500"><%= day.strftime("%e") %></span>
               </div>
-              <div class="bottom flex-grow h-30 py-1 w-full <%= !is_close ? '' : 'cursor-pointer' %>">
+              <div class="bottom flex-grow h-30 py-1 w-full">
                 <div class="<%= is_close ? 'bg-purple-200' : 'bg-blue-400' %> text-white rounded p-1 text-sm mb-1">
                   <span class="event-name">
                     <%= @day_enable[day] %>

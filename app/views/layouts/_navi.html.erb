@@ -2,7 +2,7 @@
   <img src="" class="h-14 rounded-full px-0" alt="">
   <ul class="px-10 py-4 flex space-x-3 ">
     <%= content_tag(:li, class: "cursor-pointer") do
-        link_to("Home", root_path) end                 if !admin_signed_in? %>
+        link_to("HOME", root_path) end                 if !admin_signed_in? %>
 
     <%= content_tag(:li, class: "cursor-pointer") do
         link_to("ルーム", rooms_path) end               if admin_signed_in? %>

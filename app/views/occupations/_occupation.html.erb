@@ -25,20 +25,21 @@
           </thead>
           <tbody>
           <% @occupations.each do |occupation| %>
+            <% tdcolor = occupation.day <= Date.today ? 'text-gray-300' : 'text-gray-900' %>
             <tr class="border-b">
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium <%= tdcolor %>">
                 <%= occupation.room.name %>
               </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              <td class="text-sm font-light px-6 py-4 whitespace-nowrap <%= tdcolor %>">
                 <%= occupation.day.strftime("%Y年 %m月 %d日") %>
               </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              <td class="text-sm font-light px-6 py-4 whitespace-nowrap <%= tdcolor %>">
                 <%= occupation.time_s.strftime("%R") %>
               </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              <td class="text-sm font-light px-6 py-4 whitespace-nowrap <%= tdcolor %>">
                 <%= occupation.time_e.strftime("%R") %>
               </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              <td class="text-sm font-light px-6 py-4 whitespace-nowrap <%= tdcolor %>">
                 <%= check_box_tag '','', occupation.reservation %>
               </td>
             </tr>

@@ -2,7 +2,8 @@ export const SelectTime = {
   inject: [
     'mnlist', 
     'mns', 
-    'tday', 
+    'tday',
+    'selectedRoom',
     'selected', 
     'onFormSubmited', 
     'getOccupations',
@@ -12,7 +13,7 @@ export const SelectTime = {
     'occupation',
   ],
   template: `
-    <div>選択したRoomID:{{selected}} {{tday}}  start:{{start}} end:{{end}}</div>
+    <div>選択したRoom : {{selectedRoom.name}} </div>
     <div class="my-2 flex">
       <template v-for="(mn, i) of mns">
         <span v-if="reserved(injectSelected, i)" :id="mn" :value="mn" 
@@ -30,9 +31,9 @@ export const SelectTime = {
               {{mn.slice(3,5) === '00' ? mn.slice(0, 2) : '' }}</span>
     </template>
   </div> 
-<div v-if="buttonFlg">
-    <button @click="selectAgain" class="frm_btn bg-red-300 mt-10">Select again</button>
-    </div>
+  <div v-if="buttonFlg">
+    <button @click="selectAgain" class="frm_btn bg-red-300 mt-10">時刻選択やり直し</button>
+  </div>
   `,
   data(){
     return {

@@ -10,7 +10,7 @@ const NewOccupation = {
   },
   props: ['tday', 'mns', 'mnlist', 'current'],
   template: `
-    <div>{{tday}} {{current}}</div>
+    <div class="mb-5">日付 {{tday}}</div>
     <div v-show="showAllFlag">
       <div v-for="room of rooms">
         <label for="room.id">{{room.name}}：</label>

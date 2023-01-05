@@ -6,17 +6,17 @@ export const Occupation = {
   <form class="contents" @submit="setOccupation">
 
     <div class="my-5">
-      <label for="calender_room_id">Room</label>
-      <p>{{selectedRoom.name}} {{selectedRoom.number}} {{selectedRoom.profile}} {{selectedRoom.rid}}</p>
+      <label for="calender_room_id">部屋</label>
+      <p>{{selectedRoom.name}} (No. {{selectedRoom.number}})</p>
     </div>
 
     <div class="my-5">
-      <label for="calender_begin_time">Begin time</label>
+      <label for="calender_begin_time">開始時刻</label>
       <input class="frm_ln" type="datetime-local" v-model="occupation.time_s" id="calender_begin_time" disabled />
     </div>
 
     <div class="my-5">
-      <label for="calender_close_time">Close time</label>
+      <label for="calender_close_time">終了時刻</label>
       <input class="frm_ln" type="datetime-local" v-model="occupation.time_e" id="calender_close_time" disabled />
     </div>
 
