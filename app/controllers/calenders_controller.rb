@@ -30,7 +30,6 @@ class CalendersController < ApplicationController
     @calender.interval_s  = params[:day] + 'T' + params[:interval_s]
     @calender.interval_e  = params[:day] + 'T' + params[:interval_e]
     @calender.unit_minute = params[:unit_minute]
-    #binding.b
   end
 
   # GET /calenders/1/edit
@@ -42,7 +41,6 @@ class CalendersController < ApplicationController
     selected_room = Room.find(params[:id])
     t = Time.new
     date   = t.strftime("%Y-%m-%d")
-    #tdate = t.strftime("%Y-%m-%dT%H:%M:%S")
     bTime  = date + "T09:00"
     cTime  = date + "T17:00"
     isTime = date + "T12:00"
@@ -54,8 +52,6 @@ class CalendersController < ApplicationController
 
   # POST /calenders or /calenders.json
   def create
-    #p calender_params
-    #binding.b
     @calender = Calender.new(calender_params)
 
     respond_to do |format|
