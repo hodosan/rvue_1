@@ -13,10 +13,7 @@ class OccupationsController < ApplicationController
      
   def of_tday
     tday = params[:day]
-#p tday    
-    #@tday_occupations = Occupation.of_tday(tday, current_user.id)
     @tday_occupations = Occupation.of_tday(tday)
-#p @tday_occupations    
   end
 
   def admin
